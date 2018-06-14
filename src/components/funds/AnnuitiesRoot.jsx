@@ -26,10 +26,37 @@ class AnnuitiesRoot extends Component {
             ],
             showSideBar: true
         };
+        this.onClick = this.onClick().bind(this);
     }
 
-    onClick = () => {
-        this.setState({showSideBar: !this.props.showSideBar});
+    onClick() {
+        this.setState({funds: this.state.funds, showSideBar: !this.state.showSideBar});
+    }
+
+    componentWillMount() {
+
+        console.log("component mounted");
+        let me = this;
+        let fetched = fetch('/funds')
+            .then(function (response) {
+                if (response.status === 200) {
+                    console.log("200 reached");
+                    return response.json();
+                }
+                else
+                    throw new Error("This failed with rc: " + response.status)
+            })
+            .then(data =>{
+                console.log(data);
+                let state = me.state;
+                state.funds = data;
+                me.setState(state)
+            })
+            .catch(function (error) {
+                console.log('Larry error', error)
+            });
+        // console.log(fetched);
+        return fetched;
     }
 
     render() {
@@ -40,7 +67,7 @@ class AnnuitiesRoot extends Component {
                 </div>
                 {this.state.showSideBar ? (
                     <div className="col-lg-4 sidebar">
-                        <SideBar funds={this.state.funds}/>
+                        <SideBar funds={this.state.funds} onClick={this.onClick}/>
                     </div>
                 ) : (
                     <div className="col-lg-4">
