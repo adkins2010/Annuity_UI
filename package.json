@@ -1,0 +1,20 @@
+{
+  "name": "Annuities-Demo",
+  "version": "0.0.1",
+  "description": "Annuities Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "author": "Michael Michinobu Adkins (adkins2010)",
+  "license": "",
+  "dependencies": {
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-scripts": "^1.1.1",
+    "sinon": "^2.1.0"
+  }
+}
