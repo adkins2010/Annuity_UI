@@ -26,10 +26,10 @@ class AnnuitiesRoot extends Component {
             ],
             showSideBar: true
         };
-        this.onClick = this.onClick().bind(this);
+        this.closeSidebar = this.closeSidebar().bind(this);
     }
 
-    onClick() {
+    closeSidebar() {
         this.setState({funds: this.state.funds, showSideBar: !this.state.showSideBar});
     }
 
@@ -67,7 +67,7 @@ class AnnuitiesRoot extends Component {
                 </div>
                 {this.state.showSideBar ? (
                     <div className="col-lg-4 sidebar">
-                        <SideBar funds={this.state.funds} onClick={this.onClick}/>
+                        <SideBar funds={this.state.funds} onClick={this.closeSidebar}/>
                     </div>
                 ) : (
                     <div className="col-lg-4">

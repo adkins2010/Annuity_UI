@@ -28,7 +28,7 @@ export default class SideBar extends Component {
                     {this.fundsList}
                     </tbody>
                     <tfoot>
-                    <a onClick={this.props.onClick}>CLOSE</a>
+                    <a onClick={this.props.closeSidebar}>CLOSE</a>
                     </tfoot>
                 </table>
             </div>
