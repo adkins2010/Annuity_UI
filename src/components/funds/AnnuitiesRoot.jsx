@@ -33,31 +33,31 @@ class AnnuitiesRoot extends Component {
         this.setState({funds: this.state.funds, showSideBar: !this.state.showSideBar});
     }
 
-    componentWillMount() {
-
-        console.log("component mounted");
-        let me = this;
-        let fetched = fetch('/funds')
-            .then(function (response) {
-                if (response.status === 200) {
-                    console.log("200 reached");
-                    return response.json();
-                }
-                else
-                    throw new Error("This failed with rc: " + response.status)
-            })
-            .then(data =>{
-                console.log(data);
-                let state = me.state;
-                state.funds = data;
-                me.setState(state)
-            })
-            .catch(function (error) {
-                console.log('Larry error', error)
-            });
-        // console.log(fetched);
-        return fetched;
-    }
+    // componentWillMount() {
+    //
+    //     console.log("component mounted");
+    //     let me = this;
+    //     let fetched = fetch('/funds')
+    //         .then(function (response) {
+    //             if (response.status === 200) {
+    //                 console.log("200 reached");
+    //                 return response.json();
+    //             }
+    //             else
+    //                 throw new Error("This failed with rc: " + response.status)
+    //         })
+    //         .then(data =>{
+    //             console.log(data);
+    //             let state = me.state;
+    //             state.funds = data;
+    //             me.setState(state)
+    //         })
+    //         .catch(function (error) {
+    //             console.log('', error)
+    //         });
+    //     // console.log(fetched);
+    //     return fetched;
+    // }
 
     render() {
         return (
