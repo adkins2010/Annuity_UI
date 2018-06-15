@@ -67,7 +67,7 @@ class AnnuitiesRoot extends Component {
                 </div>
                 {this.state.showSideBar ? (
                     <div className="col-lg-4 sidebar">
-                        <SideBar funds={this.state.funds} onClick={this.closeSidebar}/>
+                        <SideBar funds={this.state.funds} closeSidebar={this.closeSidebar}/>
                     </div>
                 ) : (
                     <div className="col-lg-4">
